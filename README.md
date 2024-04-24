@@ -15,6 +15,7 @@ mongoose.connect(process.env.adminURI).then(()=>{console.log("Db Conected")}).ca
 ................................................................................How i did it.................................................................................................................
 
 app.post('/SignUp',async(req,res)=>{
+app.post('/SignUp',async(req,res)=>{
 const {password,Email,Username}=req.body;
 const user = new UserModule({
 Email:Email,
