@@ -14,28 +14,6 @@ mongoose.connect(process.env.adminURI).then(()=>{console.log("Db Conected")}).ca
 
 ................................................................................How i did it.................................................................................................................
 
-app.post('/SignUp',async(req,res)=>{
-app.post('/SignUp',async(req,res)=>{
-const {password,Email,Username}=req.body;
-const user = new UserModule({
-Email:Email,
-Username:Username,
-password:password
-})
-const result= await UserModule.findOne({Email:Email})
-if(result){
-    
-    res.status(409).json("already Exist")
-}
-else{
-    try{
-        const dataSave= await user.save();
-        res.status(200).json(dataSave);
-    }
-    catch(e){
-        res.status(400).json({message:e.message});   
-    }
-    
-}
-})
+![image](https://github.com/HaiderF21/industrial_project_management/assets/145140651/aa13f8b1-3762-4c0e-bb58-cc4a5a1b768e)
+
 .............................................................................................................................................................................................................
