@@ -104,5 +104,13 @@ body {
   }
 } */
 .FormLogin{
-  width: 500;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40%;
+  margin-top: 30%;
+}
+.email{
+  
 }

@@ -14,6 +14,7 @@ export default function Login(){
 <label htmlFor="pass">Password</label>
             <input id="email" type="password" placeholder="Enter password" required />
 </div>
+<button type="submit">Login</button>
         </form>
         </>
     )
