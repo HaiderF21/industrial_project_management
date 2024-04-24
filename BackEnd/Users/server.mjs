@@ -33,12 +33,20 @@ Email:Email,
 Username:Username,
 password:password
 })
-try{
-    const dataSave= await user.save();
-    res.status(200).json(dataSave);
+const result= await UserModule.findOne({Email:Email})
+if(result){
+    
+    res.status(409).json("already Exist")
 }
-catch(e){
-    res.status(400).json({message:e.message});   
+else{
+    try{
+        const dataSave= await user.save();
+        res.status(200).json(dataSave);
+    }
+    catch(e){
+        res.status(400).json({message:e.message});   
+    }
+    
 }
 })
 
