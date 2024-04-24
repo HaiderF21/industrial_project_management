@@ -7,7 +7,7 @@ dotenv.config();
 
 //Create schema contains a single field named 'name.' 
 //The 'name' field is of type String
-const TodoSchema = new mongoose.Schema( {paasword: String, roll: String,email :String,Username: String,marks:Number} ); 
+const UserModule = new mongoose.Schema( {password: String, UiD: String,Email :String,Username: String} ); 
 
 //Export the Mongoose model with the collection name "Todo"
-export default mongoose.model('Todo', TodoSchema);
+export default mongoose.model('UserModule', UserModule);
