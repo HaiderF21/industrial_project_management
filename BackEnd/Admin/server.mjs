@@ -1,0 +1,21 @@
+
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import routes from './routes/adminroutes.mjs';
+import AdminModel from './models/AdminModel.mjs';
+
+dotenv.config();
+mongoose.connect(process.env.adminURI).then(()=>{console.log("Db Conected")}).catch((e)=>{console.log("Db  not Connected")});
+const app = express();
+app.use(express.json());
+app.use('/api',routes);
+const port = 3000;
+
+/*app.get("/",(req,res)=>{
+    res.send("Hello Admin");
+})
+*/
+
+
+app.listen(port,console.log("http://localhost:3000/"));
