@@ -1,21 +1,28 @@
 export default function Login(){
-    
+
+
     return(
         <>
-        <h1>Login</h1>
-        <form className="FormLogin" action="../components/login" method="POST">
-            <div className="email">
-
-<label htmlFor="email">Email</label>
-<input id="email" type="email" required placeholder="Your Email"/>
+       <section className="container">
+        <div className="login-container">
+            <div className="circle circle-one"></div>
+            <div className="form-container">
+                <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" className="illustration" />
+                <h1 className="opacity">LOGIN</h1>
+                <form method="post" action="../components/login">
+                    <input type="text" placeholder="USERNAME" />
+                    <input type="password" placeholder="PASSWORD" />
+                    <button type="submit" className="opacity">SUBMIT</button>
+                </form>
+                <div className="register-forget opacity">
+                    <a href="">REGISTER</a>
+                    <a href="">FORGOT PASSWORD</a>
+                </div>
             </div>
-<div className="pass">
-
-<label htmlFor="pass">Password</label>
-            <input id="email" type="password" placeholder="Enter password" required />
-</div>
-<button type="submit">Login</button>
-        </form>
+            <div className="circle circle-two"></div>
+        </div>
+        <div className="theme-btn-container"></div>
+    </section>
         </>
     )
 }
