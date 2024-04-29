@@ -1,8 +1,7 @@
 "use client"
-import { request } from "http";
-import { useRef,useState } from "react"
-import { json } from "stream/consumers";
-
+import { revalidatePath } from 'next/cache';
+import '../components/signup.css'
+import { useState } from "react";
 export default function Login(){
 const [userName,setuser] = useState("");
 const [pass,setpass] = useState("");
@@ -20,9 +19,9 @@ const checker1 = async () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "Email": userName,
+                "Username": userName,
                 "password": pass, // Assuming "pass" is a variable containing the password
-                "Username": email // Assuming "email" is a variable containing the username
+                "Email": email // Assuming "email" is a variable containing the username
             })
         });
 
@@ -32,7 +31,8 @@ const checker1 = async () => {
 
         const data = await response.json();
         // Do something with the data if needed
-        return data;
+        //  revalidatePath('../components/login','page')
+        // return data;
     } catch (error) {
         alert("error");
         console.error('Error:', error);
@@ -47,15 +47,15 @@ const checker1 = async () => {
             <div className="circle circle-one"></div>
             <div className="form-container">
                 <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" className="illustration" />
-                <h1 className="opacity">LOGIN</h1>
-                <form >
+                <h1 className="opacity">SIGNUP</h1>
+                <form onSubmit={()=>checker1()}>
                 <input onChange={e=>setemail(e.target.value)} type="text" placeholder="Email" />
                     <input onChange={e=>setuser(e.target.value)} type="text" placeholder="USERNAME" />
                     <input onChange={e=>setpass(e.target.value)} type="password" placeholder="PASSWORD" />
-                    <button onClick={()=>checker1()}  className="opacity">SUBMIT</button>
+                    <button   className="opacity">SUBMIT</button>
                 </form>
                 <div className="register-forget opacity">
-                    <a href="">REGISTER</a>
+                    <a href="">Login</a>
                     <a href="">FORGOT PASSWORD</a>
                 </div>
             </div>
