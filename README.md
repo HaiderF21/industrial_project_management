@@ -17,3 +17,6 @@ mongoose.connect(process.env.adminURI).then(()=>{console.log("Db Conected")}).ca
 ![image](https://github.com/HaiderF21/industrial_project_management/assets/145140651/aa13f8b1-3762-4c0e-bb58-cc4a5a1b768e)
 
 .............................................................................................................................................................................................................
+
+
+boys we also need to add cors in our backend
