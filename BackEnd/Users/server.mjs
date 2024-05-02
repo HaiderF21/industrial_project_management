@@ -16,12 +16,15 @@ const connectionString = process.env.DB_URL
 mongoose.connect(connectionString).then(()=> console.log('Connect to the DB..')).catch((err)=>console.log(err))
 
 
-app.get('/Login', async(req,res)=> {
+app.post('/Login', async(req,res)=> {
     const {Email,password}=req.body;
     try{
 
         const result= await UserModule.findOne({Email:Email,password:password});
-        res.status(200).json(result);
+        if(result){
+
+            res.status(200).json(result);
+        }
     }
 catch(e){
     res.status(400).json({message:e.message})
