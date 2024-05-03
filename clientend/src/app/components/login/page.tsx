@@ -56,7 +56,7 @@ export default function login() {
                             <button className="opacity">SUBMIT</button>
                         </form>
                         <div className="register-forget opacity">
-                            <a href="http://localhost:3000/">SignUp</a>
+                            <a href="http://localhost:3000">SignUp</a>
                             <a href="">FORGOT PASSWORD</a>
                         </div>
                     </div>

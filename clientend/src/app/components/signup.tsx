@@ -3,7 +3,9 @@ import { revalidatePath } from 'next/cache';
 import '../components/signup.css'
 import { useState } from "react";
 export default function Login(){
-const [userName,setuser] = useState("");
+const [userName,setuser] = useState("")
+const [age,setage] = useState("");
+const[name,setName]  = useState("") ;
 const [pass,setpass] = useState("");
 const [email,setemail] = useState("");
 // const data={
@@ -13,7 +15,7 @@ const [email,setemail] = useState("");
 const api="http://localhost:3004"
 const checker1 = async () => {
     try {
-        const response = await fetch(api + "/api/SignUp/", {
+        const response = await fetch(api + "/api/SignUp", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -22,8 +24,8 @@ const checker1 = async () => {
                 "Username": userName,
                 "Password": pass, // Assuming "pass" is a variable containing the password
                 "Email": email,
-                "Age":12,
-                "Name":"usman"// Assuming "email" is a variable containing the username
+                "Age":age,
+                "Name":name // Assuming "email" is a variable containing the username
             })
         });
         if (!response.ok) {
@@ -52,12 +54,15 @@ const checker1 = async () => {
                 <h1 className="opacity">SIGNUP</h1>
                 <form onSubmit={()=>checker1()}>
                 <input onChange={e=>setemail(e.target.value)} type="text" placeholder="Email" />
-                    <input onChange={e=>setuser(e.target.value)} type="text" placeholder="USERNAME" />
-                    <input onChange={e=>setpass(e.target.value)} type="password" placeholder="PASSWORD" />
-                    <button   className="opacity">SUBMIT</button>
+                    <input onChange={e=>setuser(e.target.value)} type="text" placeholder="UserName" />
+                    <input onChange={e=>setName(e.target.value)} type="text" placeholder="Name" />
+                    <input onChange={e=>setage(e.target.value)} type="text" placeholder="Age" />
+                    <input onChange={e=>setpass(e.target.value)} type="password" placeholder="Password" />
+                    <button  type = "submit" className="opacity">SUBMIT</button>
                 </form>
+                
                 <div className="register-forget opacity">
-                    <a href="http://localhost:3001/components/login">Login</a>
+                    <a href="http://localhost:3000/components/login">Login</a>
                     <a href="">FORGOT PASSWORD</a>
                 </div>
             </div>
