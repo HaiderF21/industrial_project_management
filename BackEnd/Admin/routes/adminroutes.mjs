@@ -31,11 +31,11 @@ routes.post('/SignUp/',async(req,res)=>
     }
 });
 
-routes.get('/login',async(req,res)=>
+routes.post('/login',async(req,res)=>
 {
-    const {UserName,PassWord} = req.body;
+    const {Email,Password} = req.body;
     try{
-    const result = await AdminModel.findOne({Username:UserName,Password:PassWord});
+    const result = await AdminModel.findOne({Email:Email,Password:Password});
     res.status(200).json(result);   
 }
 catch(e)
