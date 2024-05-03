@@ -1,4 +1,5 @@
 {
   "/components/login/page": "app/components/login/page.js",
-  "/components/success/page": "app/components/success/page.js"
+  "/components/success/page": "app/components/success/page.js",
+  "/page": "app/page.js"
 }

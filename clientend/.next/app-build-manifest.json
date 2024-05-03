@@ -15,6 +15,7 @@
     "/components/success/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/components/success/page.css",
       "static/chunks/app/components/success/page.js"
     ],
     "/page": [
