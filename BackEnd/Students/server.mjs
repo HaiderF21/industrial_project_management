@@ -3,6 +3,8 @@ import express, { query } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { mongoose } from "mongoose";
+import ProjectSchema from "./modules/ProjectSchema.mjs"
+import fbSchema from "./modules/fbSchema.mjs"
 
 dotenv.config();
 const port = 3002;
@@ -16,10 +18,9 @@ app.use(express.json());
 
 const connectionString = process.env.DB_URL;
 
-mongoose
-  .connect(connectionString)
-  .then(() => console.log("Connect to the DB.."))
-  .catch((err) => console.log(err));
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
 
 app.post("/login", async (req, res) => {
   const { Email, password } = req.body;
@@ -53,6 +54,53 @@ app.post("/SignUp", async (req, res) => {
     } catch (e) {
       res.status(400).json({ message: e.message });
     }
+  }
+});
+
+app.post('/projects', async (req, res) => {
+  try {
+    const { projectName, description, startDate, endDate, fundingDetails } = req.body;
+
+    const project = new projectSchema({
+      projectName,
+      description,
+      startDate: new Date(startDate),
+      endDate: new Date(endDate),
+      fundingDetails,
+    });
+
+ 
+    const newProject = await project.save();
+
+    res.status(201).json(newProject); 
+  } catch (err) {
+    console.error('Error creating project:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/projects', async (req, res) => {
+  try {
+      
+      const projects = await ProjectSchema.find(); 
+      res.json(projects);
+  } catch (error) {
+      console.error('Error fetching projects:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/feedback', async (req, res) => {
+  try {
+    const { projectId, feedback } = req.body;
+ 
+    const newFeedback = new fbSchema({ projectId, feedback });
+   
+    await newFeedback.save();
+    res.status(201).json({ message: 'Feedback submitted successfully' });
+  } catch (error) {
+    console.error('Error submitting feedback:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

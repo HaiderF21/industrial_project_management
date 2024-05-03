@@ -1,10 +1,13 @@
+import Navigation from "./components/Navigation";
 import Signup from "./components/signup";
+
 export default function Home() {
   return (
     <>
-      <div className="login-div">
-        <Signup />
-      </div>
+      <Navigation />
+
+      <h1 className="WelcomeNote">Welcome to My Industrial Project System!</h1>
+      <Signup />
     </>
   );
 }

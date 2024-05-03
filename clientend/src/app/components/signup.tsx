@@ -3,16 +3,15 @@
 import { revalidatePath } from "next/cache";
 import "../components/signup.css";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 export default function Login() {
+  const router = useRouter();
   const [userName, setuser] = useState("");
   const [pass, setpass] = useState("");
   const [email, setemail] = useState("");
-  // const data={
-  //     "Email": {userName},
-  // "password":{pass}
-  // };
   const api = "http://localhost:3002";
-  const checker1 = async () => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     try {
       const response = await fetch(api + "/SignUp", {
         method: "POST",
@@ -21,8 +20,8 @@ export default function Login() {
         },
         body: JSON.stringify({
           Username: userName,
-          password: pass, // Assuming "pass" is a variable containing the password
-          Email: email, // Assuming "email" is a variable containing the username
+          password: pass,
+          Email: email,
         }),
       });
 
@@ -31,14 +30,10 @@ export default function Login() {
       }
 
       const data = await response.json();
-      // Do something with the data if needed
-      //  revalidatePath('../components/login','page')
-      // return data;
+      router.push("/components/login");
     } catch (error) {
       alert("error");
       console.error("Error:", error);
-      // Handle the error appropriately, for example:
-      // throw error; // Rethrow the error for further handling
     }
   };
   return (
@@ -53,7 +48,7 @@ export default function Login() {
               className="illustration"
             />
             <h1 className="opacity">SIGNUP---</h1>
-            <form onSubmit={() => checker1()}>
+            <form onSubmit={handleSubmit}>
               <input
                 onChange={(e) => setemail(e.target.value)}
                 type="text"
