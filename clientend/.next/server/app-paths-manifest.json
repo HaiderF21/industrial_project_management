@@ -1,5 +1,6 @@
 {
+  "/page": "app/page.js",
   "/components/login/page": "app/components/login/page.js",
   "/components/success/page": "app/components/success/page.js",
-  "/page": "app/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

@@ -37,6 +37,9 @@ app.post('/Login', async(req,res)=> {
 
             res.status(200).json(result);
         }
+        else{
+            throw new Error('Network response was not ok'); 
+        }
     }
 catch(e){
     res.status(400).json({message:e.message})

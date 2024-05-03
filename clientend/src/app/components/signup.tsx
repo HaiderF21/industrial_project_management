@@ -1,5 +1,6 @@
 "use client"
 import { revalidatePath } from 'next/cache';
+import { useRouter } from "next/navigation";
 import '../components/signup.css'
 import { useState } from "react";
 export default function Login(){
@@ -11,7 +12,9 @@ const [email,setemail] = useState("");
 // "password":{pass}
 // };
 const api="http://localhost:3002"
-const checker1 = async () => {
+const router=useRouter();
+const checker1 = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     try {
         const response = await fetch(api + "/SignUp", {
             method: "POST",
@@ -30,6 +33,7 @@ const checker1 = async () => {
         }
 
         const data = await response.json();
+        router.push('/components/login')
         // Do something with the data if needed
         //  revalidatePath('../components/login','page')
         // return data;
@@ -48,7 +52,7 @@ const checker1 = async () => {
             <div className="form-container">
                 <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" className="illustration" />
                 <h1 className="opacity">SIGNUP</h1>
-                <form onSubmit={()=>checker1()}>
+                <form onSubmit={checker1}>
                 <input onChange={e=>setemail(e.target.value)} type="text" placeholder="Email" />
                     <input onChange={e=>setuser(e.target.value)} type="text" placeholder="USERNAME" />
                     <input onChange={e=>setpass(e.target.value)} type="password" placeholder="PASSWORD" />

@@ -24,7 +24,8 @@ Username:"username"
             alert("error")
         }
 
-console.log(result)}
+// console.log(result)
+}
 //    update();
 setTimeout(()=>update(),10000)
     return(
