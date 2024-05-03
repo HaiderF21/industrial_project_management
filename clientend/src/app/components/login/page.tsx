@@ -1,12 +1,41 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { revalidatePath } from "next/cache";
 import "../signup.css";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function login() {
+  const router = useRouter();
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
-  const checker1 = () => {};
+  const api = "http://localhost:3002";
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(api + "/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          Email: email,
+          password: pass,
+        }),
+      });
+
+      if (!response.ok) {
+        alert("error123");
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      router.push("/components/home");
+    } catch (error) {
+      alert(error);
+      console.error("Error:", error);
+    }
+  };
   return (
     <>
       <section className="container">
@@ -19,7 +48,7 @@ export default function login() {
               className="illustration"
             />
             <h1 className="opacity">LOGIN</h1>
-            <form onSubmit={() => checker1()}>
+            <form onSubmit={handleSubmit}>
               <input
                 onChange={(e) => setemail(e.target.value)}
                 type="text"
@@ -30,7 +59,9 @@ export default function login() {
                 type="password"
                 placeholder="PASSWORD"
               />
-              <button className="opacity">SUBMIT</button>
+              <button type="submit" className="opacity">
+                SUBMIT
+              </button>
             </form>
             <div className="register-forget opacity">
               <a href="http://localhost:3000/">SIGNUP</a>

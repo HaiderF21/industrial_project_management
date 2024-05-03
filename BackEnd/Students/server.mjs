@@ -21,14 +21,16 @@ mongoose
   .then(() => console.log("Connect to the DB.."))
   .catch((err) => console.log(err));
 
-app.get("/Login", async (req, res) => {
+app.post("/login", async (req, res) => {
   const { Email, password } = req.body;
   try {
     const result = await StudentModule.findOne({
       Email: Email,
       password: password,
     });
-    res.status(200).json(result);
+    if (result) {
+      res.status(200).json(result);
+    }
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
