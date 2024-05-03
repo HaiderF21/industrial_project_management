@@ -8,7 +8,7 @@ routes.get('/',async(req,res)=>{
     res.send(await AdminModel.find({}));
 });
 
-routes.post('/SignUp/',async(req,res)=>
+routes.post('/SignUp',async(req,res)=>
 {
     const {Username,Password,Email,Name,Age} = req.body;
     const user = new AdminModel(

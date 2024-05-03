@@ -10,8 +10,10 @@ mongoose.connect(process.env.adminURI).then(()=>{console.log("Db Conected")}).ca
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3001"
+    origin:  "http://localhost:3000"
+ //   credentials: true // if needed
 }))
+
 app.use('/api',routes);
 const port = 3004;
 /*app.get("/",(req,res)=>{
