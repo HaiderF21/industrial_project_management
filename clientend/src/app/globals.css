@@ -370,3 +370,9 @@ h1 {
       -o-transform: scale(1);
   }
 } */
+body{
+  margin: 0px;
+}
+.login-div{
+  margin-top: 30px;
+}

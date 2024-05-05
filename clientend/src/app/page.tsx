@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Navigation from "./components/nagbar";
 import Login from "./components/signup";
 export default function Home() {
   return (
 
     <>
+<Navigation />
     <div className="login-div">
-
     <Login />
     </div>
     </>

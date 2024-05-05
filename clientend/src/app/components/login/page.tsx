@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import '../signup.css'
-
+import Navigation from "../nagbar";
 export default function login() {
     const [email, setemail] = useState("");
     const [pass, setpass] = useState("");
@@ -47,6 +47,7 @@ export default function login() {
    
     return (
         <>
+        <Navigation />
             <section className="container">
                 <div className="login-container">
                     <div className="circle circle-one"></div>

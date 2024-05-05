@@ -2,6 +2,7 @@
 import { useState } from "react"
 const api = "http://localhost:3002";
 import ".//success.css"
+import Navigation from "../nagbar";
 export default  function success(){
 
     const [result,setreult]=useState(
@@ -30,6 +31,7 @@ Username:"username"
 setTimeout(()=>update(),10000)
     return(
         <>
+        <Navigation />
         {result.map((data)=>{
             return(
 
