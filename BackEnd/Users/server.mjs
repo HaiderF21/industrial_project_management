@@ -2,7 +2,7 @@ import UserModule from "./modules/schema.mjs"
 import  express  from "express";
 import cors from "cors"
 import dotenv from 'dotenv';
-
+import projectschema from "./modules/projectschema.mjs";
 import {mongoose} from "mongoose";
 dotenv.config();
 const port=3002;
@@ -70,5 +70,26 @@ else{
     
 }
 })
-
+app.post('/projects', async (req, res) => {
+    try {
+      const { projectName, description, startDate, endDate, fundingDetails } = req.body;
+  
+      const project = new projectschema({
+        projectName,
+        description,
+        startDate: new Date(startDate),
+        endDate: new Date(endDate),
+        fundingDetails,
+      });
+  
+   
+      const newProject = await project.save();
+  
+      res.status(201).json(newProject); 
+    } catch (err) {
+      console.error('Error creating project:', err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
 app.listen(port,console.log(`Server started at http://localhost:${port}`));
