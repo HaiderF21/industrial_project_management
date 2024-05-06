@@ -18,11 +18,10 @@
       "static/css/app/components/login/page.css",
       "static/chunks/app/components/login/page.js"
     ],
-    "/components/success/page": [
+    "/components/records/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/components/success/page.css",
-      "static/chunks/app/components/success/page.js"
+      "static/chunks/app/components/records/page.js"
     ],
     "/components/projectform/page": [
       "static/chunks/webpack.js",

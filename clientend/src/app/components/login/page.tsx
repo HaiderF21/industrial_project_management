@@ -31,7 +31,7 @@ export default function login() {
                 alert("success")
             }
             const data = await response.json();
-            router.push('/components/success')
+            router.push('/components/records')
             // Do something with the data if needed
             //  revalidatePath('../components/login','page')
             
