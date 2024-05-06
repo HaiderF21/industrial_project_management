@@ -53,3 +53,22 @@
         left: 50%; /* Move the heading to the center */
     }
 }
+
+/* Home.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 30px;
+  }
+  
+  /* Styling for Signup component (if needed) */
+  

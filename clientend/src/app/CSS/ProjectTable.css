@@ -1,34 +1,41 @@
 /* ProjectTable.css */
 
 .project-table {
-    margin-top: 20px;
-    color: #141212;
+    max-width: 800px;
+    margin: 50px auto; /* Center the table */
+    background-color: #f6f6f6; /* Light gray background color */
+    border: 1px solid #b0bec5; /* Light blue gray border */
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 20px;
 }
-
+  
 .project-table h2 {
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: black; /* Dark title color */
 }
-
-.project-table table {
+  
+table {
     width: 100%;
     border-collapse: collapse;
-    color: #141212;
 }
-
-.project-table th, .project-table td {
-    border: 1px solid #141212;
-    padding: 8px;
+  
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ccc; /* Light gray border */
     text-align: left;
+    color: black; /* Text color */
 }
 
-.project-table th {
-    background-color: #4a64f5;
+th {
+    background-color: #6ff4ce; /* Light gray background color for headers */
 }
-
-.project-table tbody tr:nth-child(even) {
-    background-color: #d7d3d3;
+  
+tbody tr:hover {
+    background-color: #e9cccc; /* Lighter gray background color on hover */
 }
-
-.project-table tbody tr:hover {
-    background-color: #ccd3e2;
+  
+tbody tr:nth-child(even) {
+    background-color: #beef9d; /* Alternate background color for even rows */
 }

@@ -61,7 +61,7 @@ app.post('/projects', async (req, res) => {
   try {
     const { projectName, description, startDate, endDate, fundingDetails } = req.body;
 
-    const project = new projectSchema({
+    const project = new ProjectSchema({
       projectName,
       description,
       startDate: new Date(startDate),

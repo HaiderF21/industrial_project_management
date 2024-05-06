@@ -1,5 +1,5 @@
 "use client"
-import '../../CSS/projectForm.css';
+import '../../CSS/ProjectForm.css';
 import Navigation from '../Navigation';
 import { useState } from 'react';
 
@@ -44,7 +44,10 @@ export default function ProjectForm() {
   return (
     <>
       <Navigation />
-      <h1>Project Form</h1>
+    <div className="project-form-container">
+      <div className="form-header">
+        <h1>Project Form</h1>
+      </div>
       <form className="form-container" onSubmit={handleSubmit}>
         <div className="form-group">
           <input
@@ -97,6 +100,7 @@ export default function ProjectForm() {
         </div>
         <button type="submit">Submit</button>
       </form>
+    </div>
     </>
   );
 }
