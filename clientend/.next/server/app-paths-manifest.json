@@ -1,4 +1,6 @@
 {
   "/page": "app/page.js",
+  "/components/login/page": "app/components/login/page.js",
+  "/components/adminPanel/page": "app/components/adminPanel/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }

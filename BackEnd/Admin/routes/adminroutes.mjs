@@ -1,12 +1,9 @@
 import express from "express";
 import AdminModel from "../models/AdminModel.mjs";
-import bcrypt from "bcrypt";
+import bcrypt from "bcrypt"
+import ProjectDescriptionModel from "../models/ProjectDescriptionModel.mjs";
 const routes = express.Router();
 
-const saltRounds = 10;
-const hashPassword = async(password)=>{
-    return await bcrypt.hash(password,saltRounds);
-} 
 
 routes.get('/',async(req,res)=>{
     
@@ -19,7 +16,7 @@ routes.post('/SignUp', async (req, res) => {
       const hashedPassword = await hashPassword(Password);
       const user = new AdminModel({
         Username: Username,
-        Password: hashedPassword, // Store hashed password in the database
+        Password: Password, // Store hashed password in the database
         Email: Email,
         Name: Name,
         Age: Age
@@ -59,15 +56,22 @@ routes.post('/SignUp',async(req,res)=>
 routes.post('/login',async(req,res)=>
 {
     const {Email,Password} = req.body;
-    const password = await hashPassword(Password);
+    //const password = ;
     try{
-    const result = await AdminModel.findOne({Email:Email,Password:password});
+    const result = await AdminModel.findOne({Email:Email,Password:Password});
     res.status(200).json(result);   
 }
 catch(e)
 {
     res.status(400).json({message:e.message});
 }
+});
+
+routes.post('/projects',async (req,res)=>{
+    try{
+    const result = await ProjectDescriptionModel.find({});
+    res.status(200).json(result);}
+    catch(e){res.status(400).json({message:e.message})}
 });
 
 export default routes;

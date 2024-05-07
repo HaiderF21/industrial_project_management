@@ -6,7 +6,7 @@ const ProjectDescriptionModel = new mongoose.Schema(
     ProjectDescription:String,
     User_ID : Number,
     Student_ID:Number,
-    proposal_ID,Number,
+    proposal_ID : Number,
     Company_ID : Number,
     Approval : Boolean,
     Admin_Approval_ID: Number,
