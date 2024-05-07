@@ -55,8 +55,8 @@ export default function login() {
                         <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" className="illustration" />
                         <h1 className="opacity">LOGIN</h1>
                         <form onSubmit={checker1}>
-                            <input onChange={e => setemail(e.target.value)} type="text" placeholder="Email" />
-                            <input onChange={e => setpass(e.target.value)} type="password" placeholder="PASSWORD" />
+                            <input onChange={e => setemail(e.target.value)} type="email" placeholder="Email" required/>
+                            <input onChange={e => setpass(e.target.value)} type="password" placeholder="PASSWORD" required/>
                             <button type="submit" className="opacity">SUBMIT</button>
                         </form>
                         <div className="register-forget opacity">

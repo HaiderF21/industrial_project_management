@@ -3,10 +3,12 @@ import { revalidatePath } from 'next/cache';
 import { useRouter } from "next/navigation";
 import '../components/signup.css'
 import { useState } from "react";
+import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 export default function Login(){
 const [userName,setuser] = useState("");
 const [pass,setpass] = useState("");
 const [email,setemail] = useState("");
+
 // const data={
 //     "Email": {userName},
 // "password":{pass}
@@ -53,14 +55,17 @@ const checker1 = async (e: { preventDefault: () => void }) => {
                 <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" className="illustration" />
                 <h1 className="opacity">SIGNUP</h1>
                 <form onSubmit={checker1}>
-                <input onChange={e=>setemail(e.target.value)} type="text" placeholder="Email" />
-                    <input onChange={e=>setuser(e.target.value)} type="text" placeholder="USERNAME" />
-                    <input onChange={e=>setpass(e.target.value)} type="password" placeholder="PASSWORD" />
+                <input onChange={e=>setemail(e.target.value)} type="email" placeholder="Email" required/>
+                    <input onChange={e=>setuser(e.target.value)} type="text" placeholder="USERNAME" required/>
+                    <input onChange={e=>setpass(e.target.value)} type="password" placeholder="PASSWORD" required/>
                     <button   className="opacity">SUBMIT</button>
                 </form>
                 <div className="register-forget opacity">
-                    <a href="http://localhost:3000/components/login">Login</a>
-                    <a href="">FORGOT PASSWORD</a>
+                    {/* <a href="http://localhost:3000/components/login">Login</a>
+                    <a href="">FORGOT PASSWORD</a> */}
+                    <LoginLink>Sign in</LoginLink>
+
+<RegisterLink>Sign up</RegisterLink>
                 </div>
             </div>
             <div className="circle circle-two"></div>
