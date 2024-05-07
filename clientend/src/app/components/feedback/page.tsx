@@ -35,8 +35,8 @@ export default function Feedback() {
   return (
     <>
       <Navigation />
-      <h1>Feedback</h1>
       <div className="form-container">
+      <h1>Feedback</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="projectId">Project ID:</label>

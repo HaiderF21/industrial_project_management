@@ -2,23 +2,55 @@
 
 .feedback-display {
     margin-top: 20px;
+    max-width: 1300px;
+    margin: 50px auto; /* Center the display */
+    background-color: #f6f6f6; /* Light gray background color */
+    border: 1px solid #b0bec5; /* Light blue gray border */
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 20px;
 }
 
 .feedback-display h2 {
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Dark title color */
+    font-size: 28px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Convert text to uppercase */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+    border: 1px solid #ccc; /* Add border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 8px; /* Add border radius */
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
-.feedback-display ul {
-    list-style-type: none;
-    padding: 0;
+.feedback-display h2:hover {
+    background-color: #f2f2f2; /* Change background color on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
-.feedback-display li {
-    padding: 8px;
-    border: 1px solid #ddd;
-    margin-bottom: 5px;
+.feedback-display table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.feedback-display li:hover {
-    background-color: #f2f2f2;
+.feedback-display th,
+.feedback-display td {
+    padding: 12px; /* Adjusted padding */
+    border-bottom: 1px solid #ccc; /* Light gray border */
+    text-align: left;
+    color: black; /* Text color */
+}
+
+.feedback-display th {
+    background-color: #6ff4ce; /* Light gray background color for headers */
+}
+
+.feedback-display tbody tr:hover {
+    background-color: #e9cccc; /* Lighter gray background color on hover */
+}
+
+.feedback-display tbody tr:nth-child(even) {
+    background-color: #beef9d; /* Alternate background color for even rows */
 }

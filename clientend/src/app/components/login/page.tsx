@@ -4,6 +4,7 @@
 import "../signup.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Navigation from '../Navigation';
 
 export default function login() {
   const router = useRouter();
@@ -38,6 +39,7 @@ export default function login() {
   };
   return (
     <>
+      <Navigation />
       <section className="container">
         <div className="login-container">
           <div className="circle circle-one"></div>

@@ -38,7 +38,7 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="../components/signup.tsx" legacyBehavior>
+            <Link href="http://localhost:3000/" legacyBehavior>
               <a>Sign Up</a>
             </Link>
           </li>

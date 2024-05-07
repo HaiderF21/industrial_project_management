@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import "../components/signup.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Navigation from './Navigation';
 export default function Login() {
   const router = useRouter();
   const [userName, setuser] = useState("");
@@ -38,6 +39,7 @@ export default function Login() {
   };
   return (
     <>
+      {/* <Navigation /> */}
       <section className="container">
         <div className="login-container">
           <div className="circle circle-one"></div>

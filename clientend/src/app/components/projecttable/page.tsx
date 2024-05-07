@@ -4,7 +4,7 @@ import Navigation from '../Navigation';
 import '../../CSS/ProjectTable.css';
 
 interface Project {
-    id: number;
+    _id: number;
     projectName: string;
     description: string;
     startDate: string;
@@ -16,7 +16,6 @@ export default function ProjectTable() {
     const [projects, setProjects] = useState<Project[]>([]); 
 
     useEffect(() => {
-       
         fetchProjects();
     }, []);
 
@@ -30,15 +29,14 @@ export default function ProjectTable() {
             setProjects(projectsData);
         } catch (error) {
             console.error('Error fetching projects:', error);
-            
         }
     };
 
     return (
         <>
             <Navigation />
-            <h2>Projects</h2>
             <div className="project-table">
+            <h2>Projects</h2>
                 <table>
                     <thead>
                         <tr>
@@ -52,8 +50,8 @@ export default function ProjectTable() {
                     </thead>
                     <tbody>
                         {projects.map(project => (
-                            <tr key={project.id}>
-                                <td>{project.id++}</td>
+                            <tr key={project._id}>
+                                <td>{project._id}</td>
                                 <td>{project.projectName}</td>
                                 <td>{project.description}</td>
                                 <td>{project.startDate}</td>
