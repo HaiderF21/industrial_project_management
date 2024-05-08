@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import '../signup.css'
 import { Message } from "@mui/icons-material";
 

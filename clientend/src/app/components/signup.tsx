@@ -1,6 +1,7 @@
 "use client"
 import { revalidatePath } from 'next/cache';
 import '../components/signup.css'
+import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { useState } from "react";
 export default function Login(){
 const [userName,setuser] = useState("")
@@ -62,8 +63,10 @@ const checker1 = async () => {
                 </form>
                 
                 <div className="register-forget opacity">
-                    <a href="http://localhost:3000/components/login">Login</a>
-                    <a href="">FORGOT PASSWORD</a>
+                    {/* <a href="http://localhost:3000/components/login">Login</a>
+                    <a href="">FORGOT PASSWORD</a> */}
+                    <LoginLink>Sign in</LoginLink>
+<RegisterLink>Sign up</RegisterLink>
                 </div>
             </div>
             <div className="circle circle-two"></div>

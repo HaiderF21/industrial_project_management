@@ -12,12 +12,6 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/components/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/components/login/page.css",
-      "static/chunks/app/components/login/page.js"
-    ],
     "/components/adminPanel/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

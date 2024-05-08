@@ -74,4 +74,17 @@ routes.post('/projects',async (req,res)=>{
     catch(e){res.status(400).json({message:e.message})}
 });
 
+routes.post('/insertProject',async(req,res)=>{
+    const{ProjectName,ProjectDes,Category,Company_ID,ProjectDate} = req.body;
+    const project  = new ProjectDescriptionModel(
+        {
+        ProjectName:ProjectName,
+        ProjectDescription:ProjectDes,
+        
+        Company_ID : Company_ID,
+        Category:Category,
+        ProjectSubmissionDate:ProjectDate
+        }
+    )
+})
 export default routes;

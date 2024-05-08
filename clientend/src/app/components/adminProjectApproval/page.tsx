@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -234,6 +236,33 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
 }
 
 export default function EnhancedTable() {
+  const api = "http://localhost:3004";
+  const UpdateRows = async(e: { preventDefault: () => void })=>{
+    e.preventDefault();
+    try
+    {
+      const response = await fetch(api+"/api/projects",{
+        method:"POST",
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify(
+          {
+
+          }
+        )
+      });
+      if(!response.ok)
+        {
+          throw new Error('Network Response was not OK');
+        }
+        const data = await response.json();
+    }
+    catch(error)
+    {
+      console.log("Error:",error);
+    }
+  }
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof Data>('Company');
   const [selected, setSelected] = React.useState<readonly number[]>([]);
@@ -388,6 +417,9 @@ export default function EnhancedTable() {
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
       />
+       <Stack spacing={1} direction="row">
+       <Button variant="contained" onClick={UpdateRows}>View Projects</Button>
+       </Stack>
     </Box>
   );
 }
