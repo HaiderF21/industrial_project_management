@@ -16,18 +16,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/components/records/page.js"
-    ],
-    "/components/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/components/login/page.css",
-      "static/chunks/app/components/login/page.js"
-    ],
-    "/components/projectform/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/components/projectform/page.css",
-      "static/chunks/app/components/projectform/page.js"
     ]
   }
 }
