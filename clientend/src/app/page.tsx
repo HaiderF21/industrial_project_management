@@ -7,7 +7,7 @@ import './CSS/home.css'; // Import CSS module for custom styles
 export default function Home() {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       
       <div className="container">
         <h1 className="title">Welcome to My Industrial Project System!</h1>

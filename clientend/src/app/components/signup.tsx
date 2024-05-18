@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import "../components/signup.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import Navigation from './Navigation';
 export default function Login() {
   const router = useRouter();
@@ -53,24 +54,30 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
               <input
                 onChange={(e) => setemail(e.target.value)}
-                type="text"
+                type="email"
                 placeholder="EMAIL: (f219516@cfd.nu.edu.pk)"
+                required
               />
               <input
                 onChange={(e) => setuser(e.target.value)}
                 type="text"
                 placeholder="USERNAME"
+                required
               />
               <input
                 onChange={(e) => setpass(e.target.value)}
                 type="password"
                 placeholder="PASSWORD"
+                required
               />
               <button className="opacity">SUBMIT</button>
             </form>
             <div className="register-forget opacity">
-              <a href="http://localhost:3000/components/login">Login</a>
-              <a href="">FORGOT PASSWORD</a>
+              {/* <a href="http://localhost:3000/components/login">Login</a>
+              <a href="">FORGOT PASSWORD</a> */}
+              <LoginLink>Sign in with GOOGLE</LoginLink>
+
+<RegisterLink>Sign up with GOOGLE</RegisterLink>
             </div>
           </div>
           <div className="circle circle-two"></div>

@@ -5,16 +5,18 @@ import "../signup.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Navigation from '../Navigation';
-
+import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 export default function login() {
   const router = useRouter();
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
   const api = "http://localhost:3002";
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+
+
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
-      const response = await fetch(api + "/login", {
+      const response = await fetch(api+"/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,20 +28,19 @@ export default function login() {
       });
 
       if (!response.ok) {
-        alert("error123");
         throw new Error("Network response was not ok");
       }
 
       const data = await response.json();
+      localStorage.setItem("token", data.token); // Store token in localStorage
       router.push("/components/home");
     } catch (error) {
-      alert(error);
       console.error("Error:", error);
     }
   };
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       <section className="container">
         <div className="login-container">
           <div className="circle circle-one"></div>
@@ -53,7 +54,7 @@ export default function login() {
             <form onSubmit={handleSubmit}>
               <input
                 onChange={(e) => setemail(e.target.value)}
-                type="text"
+                type="email"
                 placeholder="EMAIL: (f219516@cfd.nu.edu.pk)"
               />
               <input
@@ -66,8 +67,11 @@ export default function login() {
               </button>
             </form>
             <div className="register-forget opacity">
-              <a href="http://localhost:3000/">SIGNUP</a>
-              <a href="">FORGOT PASSWORD</a>
+              {/* <a href="http://localhost:3000/">SIGNUP</a>
+              <a href="">FORGOT PASSWORD</a> */}
+              <LoginLink>Sign in with GOOGLE</LoginLink>
+
+<RegisterLink>Sign up with GOOGLE</RegisterLink>
             </div>
           </div>
           <div className="circle circle-two"></div>

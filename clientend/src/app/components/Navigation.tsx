@@ -38,7 +38,7 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="http://localhost:3000/" legacyBehavior>
+            <Link href="http://localhost:3030/" legacyBehavior>
               <a>Sign Up</a>
             </Link>
           </li>

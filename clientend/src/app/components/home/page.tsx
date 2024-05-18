@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
+import Navigation from '../Navigation';
 
 // Define the type of your project
 interface Project {
@@ -45,6 +46,7 @@ const ProjectGrid = () => {
 
   return (
     <>
+    <Navigation/>
       {projects.map((project) => (
         <Paper
           key={project._id}

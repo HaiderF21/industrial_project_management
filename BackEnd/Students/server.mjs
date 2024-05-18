@@ -6,6 +6,7 @@ import { mongoose } from "mongoose";
 import ProjectSchema from "./modules/ProjectSchema.mjs"
 import fbSchema from "./modules/fbSchema.mjs"
 import multer from 'multer';
+import jwt from 'jsonwebtoken';
 import path from 'path';
 
 dotenv.config();
@@ -13,7 +14,7 @@ const port = 3002;
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3030",
   })
 );
 app.use(express.json());
@@ -66,12 +67,20 @@ app.post('/fileprojects', upload.single('file'), async (req, res) => {
 app.post("/login", async (req, res) => {
   const { Email, password } = req.body;
   try {
-    const result = await StudentModule.findOne({
+    const user = await StudentModule.findOne({
       Email: Email,
       password: password,
     });
-    if (result) {
-      res.status(200).json(result);
+
+    if (user) {
+      // Generate JWT token
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1m' });
+
+      // Send the token in response
+      res.status(200).json({ token: token });
+    } else {
+      // If user not found, send unauthorized status
+      res.status(401).json({ message: "Invalid email or password" });
     }
   } catch (e) {
     res.status(400).json({ message: e.message });
